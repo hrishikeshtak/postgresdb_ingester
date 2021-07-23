@@ -73,9 +73,9 @@ class IngestDataInDB:
 
 if __name__ == '__main__':
     db_ingest_obj = IngestDataInDB(
-        user="my_user",
-        password="password123",
+        user="admin",
+        password="admin",
         host="localhost",
-        database="my_database",
+        database="admin",
     )
     db_ingest_obj.build_model_and_write_to_db()

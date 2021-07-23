@@ -7,7 +7,7 @@ Ingest millions of entries into PostgresDB using Python and SQLAlchemy
 * You can download and start postgres container using the following commands    
 ```
 >> $ docker pull bitnami/postgresql:13.3.0-debian-10-r35    
->> $ docker run --name postgresql -it -d -e POSTGRESQL_USERNAME=my_user -e POSTGRESQL_PASSWORD=password123 -e POSTGRESQL_DATABASE=my_database -p 5432:5432 bitnami/postgresql:13.3.0-debian-10-r35
+>> $ docker run --name postgres -it -d --env-file=env.db -p 5432:5432 bitnami/postgresql:13.3.0-debian-10-r35
 ```
 
 2. Download required python dependencies    
@@ -26,8 +26,8 @@ Note: Script will ingest millions of employee records into employee table, it wi
 
 * Use the following commands to enter into postgres container and check tables entries    
 ```
->> $ docker exec -it postgresql bash
->> $ psql --username=my_user --dbname=my_database
->> my_database=> \d employee;
->> my_database=> select COUNT(*) from employee;
+>> $ docker exec -it postgres bash
+>> $ psql --username=admin --dbname=admin
+>> admin=> \d employee;
+>> admin=> select COUNT(*) from employee;
 ```
